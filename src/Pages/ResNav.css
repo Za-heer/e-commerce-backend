@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+}
+.ali{
+    overflow: hidden;
+    background-color: teal;
+}
+.ali a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+}
+.ali a:hover{
+    color: black;
+    background-color: burlywood;
+}
+.ali a:active{
+    color: turquoise;
+}
+.ali .icon{
+    display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .ali a:not(:first-child) {display: none;}
+    .ali a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .ali.responsive {position: relative;}
+    .ali.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .ali.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
