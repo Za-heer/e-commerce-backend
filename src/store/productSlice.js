@@ -1,6 +1,9 @@
 // import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // import axios from "axios";
 
+
+
+
 // const STATUSES = {
 //     IDLE : "idle",
 //     LOADING : "loading",
@@ -38,22 +41,20 @@
 // const {reducer} = productSlice;
 
 
-import {createApi,fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+// import {createApi,fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
-export const productApi = createApi({
-    reducerPath:"productApi",
-    baseQuery: fetchBaseQuery({baseUrl:"http://localhost:5000"}),
-    endpoints:(builder)=>({
-        getAllProducts : builder.query({
-            query:()=>"product/getdata"
-        }),
-    }),
-});
+// export const productApi =  createApi({
+//     reducerPath:"productApi",
+//     baseQuery: fetchBaseQuery({baseUrl:"http://localhost:5000"}),
+//     endpoints:(builder)=>({
+//         getAllProducts : builder.query({
+//             query:()=>"product/getdata"
+//         }),
+//     }),
+// });
 
 
-
-export const { useGetAllProductsQuery } = productApi;
-
+// export const { useGetAllProductsQuery } = productApi;
 
 
 // export default reducer;

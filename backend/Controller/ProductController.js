@@ -6,10 +6,10 @@ const sendProduct = async (req, res) => {
   try {
     let { title, disc, price, image } = await req.body;
     const productData = new ProductModel({
-      title: title,
-      disc: disc,
-      price: price,
-      image : image
+      title,
+      disc,
+      price,
+      image,
     });
     productData
       .save()
@@ -35,9 +35,10 @@ const getProduct = async (req, res) => {
   try {
     await ProductModel.find({}, (err, data) => {
       if (err) {
-        res.json(err).status(400);
+        res.send(err).status(400);
       } else {
-        res.json({ data }).status(200);
+        
+        res.send({ data }).status(200);
       }
     }).clone();
   } catch (error) {
@@ -112,7 +113,7 @@ const deleteProduct = async (req, res) => {
     if (!product) {
       return res.json("Not found").status(404);
     }
-    product = await ProductModel.findByIdAndDelete(req.params.id)
+    product = await ProductModel.findByIdAndDelete(req.params.id);
     res.send("Delete Successfully").status(200);
   } catch (error) {
     return res.json({ success: false, message: error.message }).status(401);

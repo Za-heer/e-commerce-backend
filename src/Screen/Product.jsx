@@ -49,19 +49,27 @@
 
 // export default Product;
 
-import React from "react";
+
+//=============================================================================================
+
+
+import React, { useState } from "react";
 // import { useSelector } from 'react-redux';
-import { useGetAllProductsQuery } from "../store/productSlice";
+import { useGetAllProductsQuery } from "../store/productApi";
 function Home() {
   //white using create asyncthunk
   // const {items,status}= useSelector(state=> state.products)
   const { data, error, isloading } = useGetAllProductsQuery();
-  // const pdata= data.data[1]
-
-  {console.log([data])}
+  const [alldata,setAlldata]= useState()
+setAlldata(data)
+  
+  console.log(alldata)
   return (
     <div>
-      <div className="container ">
+      {alldata && alldata?.map((e)=>{
+        return<h1>{e.name}</h1>
+      })}
+      {/* <div className="container ">
         {isloading ? (
           <p>Loading....</p>
           ) : error ? (
@@ -71,7 +79,7 @@ function Home() {
             <h1>New Arrival</h1>
               
             <div className="product d-flex justify-content-between">
-              {data.data?.map((e, i) => {
+              {data?.map((e, i) => {
                 return (
                   <div
                     className="mainproduct"
@@ -94,11 +102,12 @@ function Home() {
                     </button>
                   </div>
                 );
-              })}
+              })
+            }
             </div>
           </>
         )}
-      </div>
+      </div> */};
     </div>
   );
 }

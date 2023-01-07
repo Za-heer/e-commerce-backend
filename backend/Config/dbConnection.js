@@ -4,7 +4,7 @@ const dbConnection = () => {
   try {
     mongoose
       .connect(
-        "mongodb+srv://ZaheerKhan:zaheer1234@cluster0.gbk9mdu.mongodb.net/?retryWrites=true&w=majority"
+        "mongodb+srv://zaheer:zaheer12@cluster0.atgagwn.mongodb.net/?retryWrites=true&w=majority"
       )
       .then((res) => {
         console.log("connected");

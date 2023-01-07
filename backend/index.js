@@ -1,20 +1,24 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 const mainRouter = require("./Router/mainRouter");
 const dbConnection = require("./Config/dbConnection");
-const PORT = process.env.PORT || 5000;
-app.use(cors({
-  origin:"*"
-}));
+const PORT = process.env.PORT || 8000;
 const urlParser = express.json();
-app.use(urlParser);
-app.use(mainRouter);
 
-
-app.use(express.json());
+// const corsOrigin ={
+//   origin:'http://localhost:3000', //or whatever port your frontend is using
+//   credentials:true,            
+//   optionSuccessStatus:200
+// }
 
 dbConnection();
+
+app.use(urlParser);
+app.use(mainRouter);
+app.use(express.json());
+
 
 app.get("/", (req, res) => {
   res.send("simple api hit");

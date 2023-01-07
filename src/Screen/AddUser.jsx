@@ -8,7 +8,7 @@ function AddUser() {
     
     const CreateUser=()=>{
         axios
-        .post("http://localhost:5000/product/postdata",{
+        .post("http://localhost:8000/product/postdata",{
             title,
             price,
             disc
